@@ -48,15 +48,18 @@ class Matcher(object):
 :rtype: unicode'''
         return self.re.sub(self.subStr, s)
 
-#: Turn ``*asterisk*`` characters into bold-elements
+#: Turn words within ``*asterisk*`` characters into bold-elements. This is as close as
+#: GroupServer gets to implementing a wiki.
 boldMatcher = Matcher("(?P<boldText>\*.*\*)", r'<b>\g<boldText></b>', 10)
 
-#: Turn email addresses (``person@example.com``) into clickable ``mailto:`` links
+#: Turn email addresses (``person@example.com``) into clickable ``mailto:`` links. Surrounding
+#: text (such as parenthesis) is added to the *link text*, while the address is extractd and used
+#: as for the *link target*.
 emailMatcher = Matcher(
     r"(?P<leading>.*?)(?P<address>[A-Z0-9\._%+-]+@[A-Z0-9.-]+\.[A-Z]+)(?P<trailing>.*)",
     r'<a class="email" href="mailto:\g<address>">\g<leading>\g<address>\g<trailing></a>', 20)
 
-#: Turn site names (``www.example.com``) into clickable ``http://`` links
+#: Turn site names that start with *www* (``www.example.com``) into clickable ``http://`` links.
 wwwMatcher = Matcher(r"(?P<siteName>www\..+)",
                      r'<a href="http://\g<siteName>">\g<siteName></a>', 30)
 
@@ -65,8 +68,10 @@ class URIMatcher(Matcher):
     '''A horrid hack for a horrid issue'''
     def __init__(self):
         super(URIMatcher, self).__init__(
-            r"(?P<leading>\&lt;|\(|\[|\{|\"|\'|^)(?P<protocol>http://|https://)"
-            r"(?P<host>([a-z\d][-a-z\d]*[a-z\d]\.)*[a-z][-a-z\\d]+[a-z])(?P<rest>.*?)"
+            r"(?P<leading>\&lt;|\(|\[|\{|\"|\'|^)"
+            r"(?P<protocol>http://|https://)"
+            r"(?P<host>([a-z\d][-a-z\d]*[a-z\d]\.)*[a-z][-a-z\\d]+[a-z])"
+            r"(?P<rest>.*?)"
             r"(?P<trailing>\&gt;|\)|\]|\}|\"|\'|$|\s)",
             r'<a href="\g<protocol>\g<host>\g<rest>">\g<leading>\g<protocol><b>\g<host></b>'
             r'\g<rest>\g<trailing></a>', 40)
@@ -104,5 +109,9 @@ class URIMatcher(Matcher):
         retval = r.format(url, content)
         return retval
 
-#: Turn URIs (both ``http`` and ``https``) into clickable links
+#: Turn URIs (both ``http`` and ``https``) into clickable
+#: links. If the link is particularly long (over 64 characters)
+#: then small text will be used (``<a class="small"``). Leading and
+#: trailing characters (like parenthesis) will be used in the
+#: *link text* while just the URL will be used for the *link target*.
 uriMatcher = URIMatcher()

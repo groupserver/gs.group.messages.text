@@ -13,31 +13,30 @@ Support for displaying the plain-text version of a post
   `Creative Commons Attribution-Share Alike 4.0 International License`_
   by `OnlineGroups.net`_.
 
-  ..  _Creative Commons Attribution-Share Alike 4.0 International License:
+..  _Creative Commons Attribution-Share Alike 4.0 International License:
     http://creativecommons.org/licenses/by-sa/4.0/
 
 Introduction
 ============
 
-The plain-text version of a post is displayed in two contexts by
-GroupServer:
-
-#.  In email messages sent to group members
-#.  On the web.
-
 This product provides the utilities and functions that supports
 the displaying of these posts, particularly the conversion of the
 plain-text post to HTML.
 
+The **actual** **rendering** of the messages is carried out in
+either:
+
+#.  `gs.group.messages.post.text.base`_ for the plain-text
+    version of the post shown on the web, or
+#.  `gs.group.list.email.html`_ for the HTML version of the
+    plain-text message (the *pseudo* *HTML*) that is used in
+    email messages.
+
 Resources
 =========
 
-.. - Documentation:
-..  http://groupserver.readthedocs.org/projects/gsgroupmessagespostbase/
 - Code repository:
   https://github.com/groupserver/gs.group.messages.text/
-.. - Translations:
-..  https://www.transifex.com/groupserver/gs-group-messages-post-base/
 - Questions and comments to
   http://groupserver.org/groups/development
 - Report bugs at https://redmine.iopen.net/projects/groupserver
@@ -46,3 +45,8 @@ Resources
 .. _GroupServer.org: http://groupserver.org/
 .. _OnlineGroups.Net: https://onlinegroups.net
 .. _Michael JasonSmith: http://groupserver.org/p/mpj17
+
+.. _gs.group.messages.post.text.base:
+   https://github.com/groupserver/gs.group.messages.post.text.base
+.. _gs.group.list.email.html:
+   https://github.com/groupserver/gs.group.list.email.html
