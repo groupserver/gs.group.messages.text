@@ -35,6 +35,8 @@ either:
 Resources
 =========
 
+- Documentation
+  https://groupserver.readthedocs.org/projects/gsgroupmessagestext
 - Code repository:
   https://github.com/groupserver/gs.group.messages.text/
 - Questions and comments to

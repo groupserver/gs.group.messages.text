@@ -20,7 +20,7 @@ splitting. Both parts of the message can be fed into the
 :class:`HTMLBody` class to generate the markup.
 
 .. autodata:: gs.group.messages.text.SplitMessage
-   :annotation: (named tuple)
+   :annotation: (:class:`collections.namedtuple`)
 
 .. autofunction:: gs.group.messages.text.split_message
 
