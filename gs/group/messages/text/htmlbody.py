@@ -16,8 +16,8 @@ from __future__ import absolute_import, unicode_literals, print_function
 from operator import attrgetter
 from xml.sax.saxutils import escape
 from zope.cachedescriptors.property import Lazy
-from gs.group.messages.post.text.splitmessage import split_message
 from .matcher import (boldMatcher, emailMatcher, wwwMatcher, uriMatcher, )
+from .splitmessage import split_message
 
 
 class HTMLBody(object):
