@@ -13,20 +13,3 @@
 #
 ############################################################################
 from __future__ import absolute_import, unicode_literals
-from mock import patch
-from unittest import TestCase
-from gs.group.list.email.html.matcher import (emailMatcher, )
-from gs.group.messages.post.text.postbody import OnlineHTMLBody
-from gs.group.privacy import (PERM_ANN, PERM_GRP, )
-
-
-class OnlineHTMLBodyTest(TestCase):
-    @patch('gs.group.messages.post.text.postbody.get_visibility')
-    def test_public(self, mocked_get_visibility):
-        r = OnlineHTMLBody('Tonight on Ethyl the Frog', PERM_ANN, [])
-        self.assertNotIn(emailMatcher, r.matchers)
-
-    @patch('gs.group.messages.post.text.postbody.get_visibility')
-    def test_not_public(self, mocked_get_visibility):
-        r = OnlineHTMLBody('Tonight on Ethyl the Frog', PERM_GRP, [])
-        self.assertIn(emailMatcher, r.matchers)

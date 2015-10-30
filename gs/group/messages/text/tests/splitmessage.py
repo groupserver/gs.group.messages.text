@@ -18,7 +18,7 @@ from contextlib import contextmanager
 import os
 from pkg_resources import resource_filename
 from unittest import TestCase
-from gs.group.messages.post.text.splitmessage import (split_message, SplitMessage, )
+from gs.group.messages.text.splitmessage import (split_message, SplitMessage, )
 
 
 class SplitMessageTest(TestCase):
