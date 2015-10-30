@@ -28,7 +28,7 @@ class SplitMessageTest(TestCase):
     @contextmanager
     def open_test_file(filename):
         testname = os.path.join('tests', filename)
-        fullname = resource_filename('gs.group.messages.post.text', testname)
+        fullname = resource_filename('gs.group.messages.text', testname)
         with codecs.open(fullname, 'r', encoding='utf-8') as infile:
             yield infile
 

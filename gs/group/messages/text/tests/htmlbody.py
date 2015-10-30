@@ -18,7 +18,7 @@ from contextlib import contextmanager
 import os
 from pkg_resources import resource_filename
 from unittest import TestCase
-from gs.group.list.email.html.htmlbody import HTMLBody
+from gs.group.messages.text.htmlbody import HTMLBody
 
 
 class TestHTMLBody(TestCase):
@@ -29,7 +29,7 @@ class TestHTMLBody(TestCase):
     @contextmanager
     def open_test_file(filename):
         testname = os.path.join('tests', filename)
-        fullname = resource_filename('gs.group.list.email.html', testname)
+        fullname = resource_filename('gs.group.messages.text', testname)
         with codecs.open(fullname, 'r', encoding='utf-8') as infile:
             yield infile
 
