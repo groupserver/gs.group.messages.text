@@ -58,6 +58,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'zope.cachedescriptors',  # --=mpj17=-- No, really, that is all.
     ],
     tests_require=['mock', ],
     test_suite="{0}.tests.test_all".format(name),
