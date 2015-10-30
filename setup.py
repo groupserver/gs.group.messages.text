@@ -31,7 +31,7 @@ with codecs.open(os.path.join("docs", "HISTORY.rst"),
 setup(
     name=name,
     version=version,
-    description="The display of a post made to a GroupServer Group",
+    description="Support for displaying the plain-text version of a post",
     long_description=long_description,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

@@ -19,6 +19,15 @@ Support for displaying the plain-text version of a post
 Introduction
 ============
 
+The plain-text version of a post is displayed in two contexts by
+GroupServer:
+
+#.  In email messages sent to group members
+#.  On the web.
+
+This product provides the utilities and functions that supports
+the displaying of these posts, particularly the conversion of the
+plain-text post to HTML.
 
 Resources
 =========
