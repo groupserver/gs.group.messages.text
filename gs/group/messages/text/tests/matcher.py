@@ -153,8 +153,8 @@ class TestURIMatcher(TestCase):
         'Test the adding zero-width spaces to a URL, to allow for breaking of long URLs'
         t = '/a/long/path'
         r = uriMatcher.add_zws(t)
-        self.assertEqual('&#8023;/a&#8023;/long&#8023;/path', r)
-        self.assertEqual('/a/long/path', r)  # Ensure nothing changes with the orignal string
+        self.assertEqual('&#8203;/a&#8203;/long&#8203;/path', r)
+        self.assertEqual('/a/long/path', t)  # Ensure nothing changes with the orignal string
 
     def test_http_path_sub(self):
         'Test a http-address with a path is turned into a link'
