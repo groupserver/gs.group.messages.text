@@ -149,6 +149,13 @@ class TestURIMatcher(TestCase):
         r = uriMatcher.match('http://example.com/people/me')
         self.assertTrue(r)
 
+    def test_add_zws(self):
+        'Test the adding zero-width spaces to a URL, to allow for breaking of long URLs'
+        t = '/a/long/path'
+        r = uriMatcher.add_zws(t)
+        self.assertEqual('&#8023;/a&#8023;/long&#8023;/path', r)
+        self.assertEqual('/a/long/path', r)  # Ensure nothing changes with the orignal string
+
     def test_http_path_sub(self):
         'Test a http-address with a path is turned into a link'
         r = uriMatcher.sub('http://example.com/people/me')
