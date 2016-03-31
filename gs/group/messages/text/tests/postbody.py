@@ -28,7 +28,7 @@ class TestWrapMessage(TestCase):
         'Ensure whitespace is collapsed'
         r = wrap_message('\n ')
 
-        self.assertEqual('', r)
+        self.assertEqual('\n', r)
 
     def test_url(self):
         'Ensure that a URL with dashes is not split'
@@ -39,3 +39,13 @@ class TestWrapMessage(TestCase):
         expected = ('This is a long string that ends with a URL that has dashes\n'
                     '<https://manu.ninja/dominant-colors-for-lazy-loading-images>')
         self.assertEqual(expected, r)
+
+    def test_quote_simple(self):
+        'Ensure that short-lines with quotes are left as is.'
+        msg = ('Their nextdoor neighbor was Mrs April Simbol:\n'
+               '> Kipling road was a sort of a typical East End street. People\n'
+               '> were in and out of each other\'s houses with each other\'s\n'
+               '> property all day long.')
+        r = wrap_message(msg)
+
+        self.assertEqual(msg, r)

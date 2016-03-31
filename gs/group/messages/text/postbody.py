@@ -43,5 +43,5 @@ def wrap_message(messageText, width=79):
         break_long_words=False)
     email_wrapper.wordsep_re = splitExp
     filledLines = [email_wrapper.fill(l) for l in messageText.split('\n')]
-    retval = '\n'.join(filledLines).strip()
+    retval = '\n'.join(filledLines)
     return retval
