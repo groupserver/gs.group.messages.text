@@ -42,6 +42,7 @@ class TestWrapper(TestCase):
         self.assertEqual('', r)
 
     def test_quote(self):
+        'Ensure quoted text is wrapped with its quotation'
         w = Wrapper(70)
         l = ("> Kipling road was a sort of a typical East End street. People "
              "were in and out of each other's houses with each other's "
@@ -51,6 +52,20 @@ class TestWrapper(TestCase):
         expected = ("> Kipling road was a sort of a typical East End street. People were in\n"
                     "> and out of each other's houses with each other's property all day\n"
                     "> long.")
+        self.assertEqual(expected, r)
+
+    def test_multi(self):
+        'Ensure that multiple-quotes are wrapped correctly'
+        'Ensure quoted text is wrapped with its quotation'
+        w = Wrapper(70)
+        l = (">>> Kipling road was a sort of a typical East End street. People "
+             "were in and out of each other's houses with each other's "
+             "property all day long.")
+        r = w.wrap_line(l)
+
+        expected = (">>> Kipling road was a sort of a typical East End street. People were\n"
+                    ">>> in and out of each other's houses with each other's property all\n"
+                    ">>> day long.")
         self.assertEqual(expected, r)
 
 
