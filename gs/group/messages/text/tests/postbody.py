@@ -106,7 +106,6 @@ class TestWrapMessage(TestCaseMessage):
 
     def test_wrap_simple_quoted(self):
         'Ensure simple bottom quoting is fine'
-        self.maxDiff = None
         with self.open_test_file('short.txt') as testIn:
             msg = testIn.read()
         r = wrap_message(msg)
