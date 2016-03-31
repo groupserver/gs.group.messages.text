@@ -114,7 +114,7 @@ class TestWrapMessage(TestCaseMessage):
             expected = expectedIn.read()
         self.assertEqual(expected, r)
 
-    def _test_wrap_tricky(self):
+    def test_wrap_tricky(self):
         'Ensure we handle tricky messages from Mozilla Tunderbird'
         # --=mpj17=-- It seems as if Mozilla Thunderbird uses the HTML version of the message
         # for the bottom quoting, rather than the plain-text, and this causes no end of issues
