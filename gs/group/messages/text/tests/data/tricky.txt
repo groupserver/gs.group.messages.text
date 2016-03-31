@@ -1,0 +1,48 @@
+<http://groupserver.org/r/post/4l8yWaMqinDBwtyqiZ3ZvU>
+Thanks for your quick reply, I have one more question but will post it in another thread to make the future search simpler...
+
+have a nice day!
+karma
+
+On Tue, Nov 24, 2015 at 6:40 PM, Michael JasonSmith <mpj17@onlinegroups.net> wrote:
+
+> GroupServer <http://groupserver.org>
+> [image: Photo of Michael JasonSmith] <http://groupserver.org/p/mpj17> *Calendar
+> functionality or integration?*
+> <http://groupserver.org/r/topic/xHwzc48PCtrPVj4eZcoDg> by *Michael
+> JasonSmith* <http://groupserver.org/p/mpj17> in *GroupServer development*
+> <http://groupserver.org/groups/development>
+> ------------------------------
+> Hi Karma,
+>
+> I agree calendars are important. Light integration would certainly be possible. The gs.feed product has the basics for displaying an ATOM or RSS feed on a Group page, for example, but it still needs work.
+>
+> I am more than happy to help someone that wanted to finish work on gs.feed, or integrate a CalDAV into GroupServer. Alternatively, I could code it up myself if they wanted to pay for the feature (which was how the web-hooks came about
+> <http://*groupserver.readthedocs.org*?/en?/master?/webhook?.html>
+> <http://groupserver.readthedocs.org/en/master/webhook.html>
+>
+> A word of caution: calendars involve time, and **anything** to do with time is tricky.
+>
+> Kind regards,
+> Michael
+> Rest of post? <http://groupserver.org/r/post/xHwzc48PCtrPVj4eZcoDg>
+> ------------------------------
+> ? Reply
+> <development@groupserver.org?subject=Re%3A%20Calendar%20functionality%20or%20integration%3F>
+>   ?? New topic <development@groupserver.org>   View topic?
+> <http://groupserver.org/r/topic/xHwzc48PCtrPVj4eZcoDg> Unsubscribe
+> <development@groupserver.org?subject=Unsubscribe&body=Hello%2C%0A%0APlease%20remove%20me%20from%20GroupServer%20development%0A%3Chttp%3A//groupserver.org/groups/development%3E%0A%0AThank%20you.>
+>  ?  Switch to a daily digest
+> <development@groupserver.org?subject=Digest%20on&body=Hello%2C%0A%0APlease%20switch%20me%20from%20receiving%20one%20email%20per%20post%20to%20the%20daily%0Adigest%2C%20which%20summarises%20the%20all%20the%20posts%20made%20each%20day%20in%0AGroupServer%20development%0A%3Chttp%3A//groupserver.org/groups/development%3E%0A%0AThank%20you.>
+>
+>    - Privacy <http://groupserver.org/policies/privacy/>
+>    - Acceptable Use <http://groupserver.org/policies/aup/>
+>    - Terms of Service <http://groupserver.org/policies/tos/>
+>
+>
+
+??
+View topic http://groupserver.org/r/topic/4l8yWaMqinDBwtyqiZ3ZvU
+Leave group mailto:development@groupserver.org?subject=Unsubscribe
+
+GroupServer: tweeting since 2010 https://twitter.com/groupserver
