@@ -28,7 +28,7 @@ class TestHTMLBody(TestCase):
     @staticmethod
     @contextmanager
     def open_test_file(filename):
-        testname = os.path.join('tests', filename)
+        testname = os.path.join('tests', 'data', filename)
         fullname = resource_filename('gs.group.messages.text', testname)
         with codecs.open(fullname, 'r', encoding='utf-8') as infile:
             yield infile

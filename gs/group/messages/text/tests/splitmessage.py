@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ############################################################################
 #
-# Copyright © 2014, 2015 OnlineGroups.net and Contributors.
+# Copyright © 2014, 2015, 2016 OnlineGroups.net and Contributors.
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -27,7 +27,7 @@ class SplitMessageTest(TestCase):
     @staticmethod
     @contextmanager
     def open_test_file(filename):
-        testname = os.path.join('tests', filename)
+        testname = os.path.join('tests', 'data', filename)
         fullname = resource_filename('gs.group.messages.text', testname)
         with codecs.open(fullname, 'r', encoding='utf-8') as infile:
             yield infile
