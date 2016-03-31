@@ -87,8 +87,9 @@ Originally a ZMI-side script in ``Presentation/Tofu/MailingListManager/lscripts`
             remainder_start = True
 
         # Raise a flag if we see a quote (comment). This is used in the if-statement above
-        if (len(line) > 3) and ((line[:4] == '&gt;') or (line[:2] == '> ')
-                                or (line.lower().find('wrote:') != -1)):
+        if (line and ((((line[:4] == '&gt;') or (line[:1] == '>')) and
+                       ((line[:9] != '&gt;From ') or line[:6] != '>From '))
+                      or (line.lower().find('wrote:') != -1))):
             consecutive_comment += 1
         else:
             consecutive_comment = 0
@@ -101,11 +102,8 @@ Originally a ZMI-side script in ``Presentation/Tofu/MailingListManager/lscripts`
     # Backtrack through the intro, in reverse order, adding things to either the remainder or
     # keeping them in the intro
     rintro = deque()
-    trim = True
+    trim = len(intro) > 5
     for i, line in enumerate(intro[::-1]):
-        if len(intro) < 5:
-            trim = False
-
         if trim:
             ls = line[:4] if len(line) > 3 else ''
             if (((ls == '&gt;') or (ls[:2] == '> ') or (ls.strip() == '')

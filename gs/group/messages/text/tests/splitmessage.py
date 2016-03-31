@@ -230,3 +230,19 @@ extraordinary trials in British legal history \u2014 were sentenced to
         msg = self.msg + closing
         r = split_message(msg)
         self.assertSplit(msg, '', r)
+
+    def test_tricky(self):
+        # --=mpj17=-- It seems as if Mozilla Thunderbird uses the HTML version of the message
+        # for the bottom quoting, rather than the plain-text, and this causes no end of issues
+        # with the splitting, and trying to find the bottom of the message.
+        with self.open_test_file('tricky-expected.txt') as testIn:
+            msg = testIn.read()
+        r = split_message(msg)
+
+        with self.open_test_file('tricky-intro.txt') as introIn:
+            intro = introIn.read()
+        self.assertEqual(intro, r.intro)
+
+        with self.open_test_file('tricky-remainder.txt') as remainderIn:
+            remainder = remainderIn.read()
+        self.assertEqual(remainder, r.remainder)
