@@ -13,25 +13,13 @@
 #
 ############################################################################
 from __future__ import absolute_import, unicode_literals, print_function
-import codecs
-from contextlib import contextmanager
-import os
-from pkg_resources import resource_filename
-from unittest import TestCase
 from gs.group.messages.text.htmlbody import HTMLBody
+from .testmessage import TestCaseMessage
 
 
-class TestHTMLBody(TestCase):
+class TestHTMLBody(TestCaseMessage):
     'Test the HTMLBody class'
     line = '<span class="line">{0}</span><br/>'
-
-    @staticmethod
-    @contextmanager
-    def open_test_file(filename):
-        testname = os.path.join('tests', 'data', filename)
-        fullname = resource_filename('gs.group.messages.text', testname)
-        with codecs.open(fullname, 'r', encoding='utf-8') as infile:
-            yield infile
 
     def assertLine(self, expected, val):
         line = self.line.format(expected)

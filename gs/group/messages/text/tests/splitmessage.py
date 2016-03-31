@@ -13,24 +13,12 @@
 #
 ############################################################################
 from __future__ import absolute_import, unicode_literals
-import codecs
-from contextlib import contextmanager
-import os
-from pkg_resources import resource_filename
-from unittest import TestCase
 from gs.group.messages.text.splitmessage import (split_message, SplitMessage, )
+from .testmessage import TestCaseMessage
 
 
-class TestSplitMessage(TestCase):
+class TestSplitMessage(TestCaseMessage):
     longMessage = True
-
-    @staticmethod
-    @contextmanager
-    def open_test_file(filename):
-        testname = os.path.join('tests', 'data', filename)
-        fullname = resource_filename('gs.group.messages.text', testname)
-        with codecs.open(fullname, 'r', encoding='utf-8') as infile:
-            yield infile
 
     @staticmethod
     def expected_split(msg, line):
