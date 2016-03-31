@@ -13,11 +13,11 @@
 #
 ############################################################################
 from __future__ import absolute_import, unicode_literals, print_function
-from unittest import TestCase
 from gs.group.messages.text.postbody import wrap_message
+from .testmessage import TestCaseMessage
 
 
-class TestWrapMessage(TestCase):
+class TestWrapMessage(TestCaseMessage):
     def test_empty(self):
         'Ensure an empty string is empty when wrapped'
         r = wrap_message('')
@@ -36,7 +36,7 @@ class TestWrapMessage(TestCase):
                '<https://manu.ninja/dominant-colors-for-lazy-loading-images>')
         r = wrap_message(msg)
 
-        expected = ('This is a long string that ends with a URL that has dashes\n'
+        expected = ('This is a long string that ends with a URL that has dashes\n'  # Note the \n
                     '<https://manu.ninja/dominant-colors-for-lazy-loading-images>')
         self.assertEqual(expected, r)
 
@@ -49,3 +49,14 @@ class TestWrapMessage(TestCase):
         r = wrap_message(msg)
 
         self.assertEqual(msg, r)
+
+    def test_wrap_simple_quoted(self):
+        'Ensure simple bottom quoting is fine'
+        self.maxDiff = None
+        with self.open_test_file('short.txt') as testIn:
+            msg = testIn.read()
+        r = wrap_message(msg)
+
+        with self.open_test_file('short-expected.txt') as expectedIn:
+            expected = expectedIn.read()
+        self.assertEqual(expected, r)

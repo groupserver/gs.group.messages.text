@@ -1,0 +1,24 @@
+<http://groupserver.org/r/post/4l8yWaMqinDBwtyqiZ3ZvU>
+Thanks for your quick reply, I have one more question but will post it in
+another thread to make the future search simpler... have a nice day!
+
+karma
+
+> Hi Karma,
+>
+> I agree calendars are important. Light integration would certainly be
+> possible. The gs.feed product has the basics for displaying an ATOM or
+> RSS feed on a Group page, for example, but it still needs work.
+>
+> I am more than happy to help someone that wanted to finish work on
+> gs.feed, or integrate a CalDAV into GroupServer. Alternatively, I could
+> code it up myself if they wanted to pay for the feature (which was how
+> the web-hooks came about
+> <http://*groupserver.readthedocs.org*?/en?/master?/webhook?.html>
+> <http://groupserver.readthedocs.org/en/master/webhook.html>
+>
+> A word of caution: calendars involve time, and **anything** to do with
+> time is tricky.
+>
+> Kind regards,
+> Michael
