@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ############################################################################
 #
-# Copyright © 2015 OnlineGroups.net and Contributors.
+# Copyright © 2015, 2016 OnlineGroups.net and Contributors.
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -19,9 +19,9 @@ from gs.group.messages.text.tests.htmlbody import (TestHTMLBody, )
 from gs.group.messages.text.tests.matcher import (
     TestMatcher, TestBoldMatcher, TestEmailMatcher, TestWWWMatcher, TestURIMatcher, )
 from gs.group.messages.text.tests.postbody import (TestWrapMessage, )
-from gs.group.messages.text.tests.splitmessage import (SplitMessageTest, )
+from gs.group.messages.text.tests.splitmessage import (TestSplitMessage, )
 testCases = (TestMatcher, TestBoldMatcher, TestEmailMatcher, TestWWWMatcher, TestURIMatcher,
-             TestHTMLBody, SplitMessageTest, TestWrapMessage, )
+             TestHTMLBody, TestSplitMessage, TestWrapMessage, )
 
 
 def load_tests(loader, tests, pattern):

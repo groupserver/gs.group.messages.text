@@ -21,7 +21,7 @@ from unittest import TestCase
 from gs.group.messages.text.splitmessage import (split_message, SplitMessage, )
 
 
-class SplitMessageTest(TestCase):
+class TestSplitMessage(TestCase):
     longMessage = True
 
     @staticmethod
