@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 ############################################################################
 #
-# Copyright © 2012, 2013, 2014, 2015 OnlineGroups.net and Contributors.
+# Copyright © 2012, 2013, 2014, 2015, 2016 OnlineGroups.net and
+# Contributors.
+#
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -41,5 +43,5 @@ def wrap_message(messageText, width=79):
         break_long_words=False)
     email_wrapper.wordsep_re = splitExp
     filledLines = [email_wrapper.fill(l) for l in messageText.split('\n')]
-    retval = '\n'.join(filledLines)
+    retval = '\n'.join(filledLines).strip()
     return retval

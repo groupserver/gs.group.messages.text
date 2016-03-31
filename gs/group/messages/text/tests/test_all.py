@@ -18,10 +18,10 @@ from unittest import TestSuite, main as unittest_main
 from gs.group.messages.text.tests.htmlbody import (TestHTMLBody, )
 from gs.group.messages.text.tests.matcher import (
     TestMatcher, TestBoldMatcher, TestEmailMatcher, TestWWWMatcher, TestURIMatcher, )
-# from gs.group.messages.text.tests.postbody import (
+from gs.group.messages.text.tests.postbody import (TestWrapMessage, )
 from gs.group.messages.text.tests.splitmessage import (SplitMessageTest, )
 testCases = (TestMatcher, TestBoldMatcher, TestEmailMatcher, TestWWWMatcher, TestURIMatcher,
-             TestHTMLBody, SplitMessageTest, )
+             TestHTMLBody, SplitMessageTest, TestWrapMessage, )
 
 
 def load_tests(loader, tests, pattern):
