@@ -1,6 +1,17 @@
 Changelog
 =========
 
+1.1.0 (2016-03-31)
+------------------
+
+* Adding the quotation symbols (``> ``) to wrapped lines.
+* Tweaking the bottom-quoting detection code so messages from
+  Mozilla Thunderbird (like `this message`_ are handled
+  correctly.
+
+.. _this message:
+   http://groupserver.org/r/post/4l8yWaMqinDBwtyqiZ3ZvU
+
 1.0.0 (2015-10-30)
 ------------------
 
