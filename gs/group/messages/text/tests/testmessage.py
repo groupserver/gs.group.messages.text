@@ -17,11 +17,10 @@ import codecs
 from contextlib import contextmanager
 import os
 from pkg_resources import resource_filename
-from unittest import TestCase
 
 
-class TestCaseMessage(TestCase):
-    'A TestCase class that allows test-files to be opened easily'
+class TestMessage(object):
+    'A mixin class that allows test-files to be opened easily'
 
     @staticmethod
     @contextmanager

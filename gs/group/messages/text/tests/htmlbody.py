@@ -13,11 +13,12 @@
 #
 ############################################################################
 from __future__ import absolute_import, unicode_literals, print_function
+from unittest import TestCase
 from gs.group.messages.text.htmlbody import HTMLBody
-from .testmessage import TestCaseMessage
+from .testmessage import TestMessage
 
 
-class TestHTMLBody(TestCaseMessage):
+class TestHTMLBody(TestCase, TestMessage):
     'Test the HTMLBody class'
     line = '<span class="line">{0}</span><br/>'
 

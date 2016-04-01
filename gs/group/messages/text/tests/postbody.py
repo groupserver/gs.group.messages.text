@@ -15,7 +15,7 @@
 from __future__ import absolute_import, unicode_literals, print_function
 from unittest import TestCase
 from gs.group.messages.text.postbody import (wrap_message, Wrapper, )
-from .testmessage import (TestCaseMessage, )
+from .testmessage import (TestMessage, )
 
 
 class TestWrapper(TestCase):
@@ -69,7 +69,7 @@ class TestWrapper(TestCase):
         self.assertEqual(expected, r)
 
 
-class TestWrapMessage(TestCaseMessage):
+class TestWrapMessage(TestCase, TestMessage):
     'Test the ``wrap_message`` function.'
 
     def test_empty(self):

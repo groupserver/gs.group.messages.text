@@ -13,11 +13,12 @@
 #
 ############################################################################
 from __future__ import absolute_import, unicode_literals
+from unittest import TestCase
 from gs.group.messages.text.splitmessage import (split_message, SplitMessage, )
-from .testmessage import TestCaseMessage
+from .testmessage import TestMessage
 
 
-class TestSplitMessage(TestCaseMessage):
+class TestSplitMessage(TestCase, TestMessage):
     longMessage = True
 
     @staticmethod
