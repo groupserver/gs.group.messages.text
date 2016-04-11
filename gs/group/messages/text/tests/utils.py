@@ -19,17 +19,13 @@ import os
 from pkg_resources import resource_filename
 
 
-class TestMessage(object):
-    'A mixin class that allows test-files to be opened easily'
-
-    @staticmethod
-    @contextmanager
-    def open_test_file(filename):
-        '''Open a test-file
+@contextmanager
+def open_test_file(filename):
+    '''Open a test-file
 
 :param str filename: The file name to open
 :returns: The file, opened as a UTF-8 text-file.'''
-        testname = os.path.join('tests', 'data', filename)
-        fullname = resource_filename('gs.group.messages.text', testname)
-        with codecs.open(fullname, 'r', encoding='utf-8') as infile:
-            yield infile
+    testname = os.path.join('tests', 'data', filename)
+    fullname = resource_filename('gs.group.messages.text', testname)
+    with codecs.open(fullname, 'r', encoding='utf-8') as infile:
+        yield infile

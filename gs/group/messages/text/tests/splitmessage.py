@@ -15,10 +15,10 @@
 from __future__ import absolute_import, unicode_literals
 from unittest import TestCase
 from gs.group.messages.text.splitmessage import (split_message, SplitMessage, )
-from .testmessage import TestMessage
+from .utils import open_test_file
 
 
-class TestSplitMessage(TestCase, TestMessage):
+class TestSplitMessage(TestCase):
     longMessage = True
 
     @staticmethod
@@ -161,7 +161,7 @@ extraordinary trials in British legal history \u2014 were sentenced to
 
     def test_bottom_quote_ugly(self):
         'Test when good quotes go bad'
-        with self.open_test_file('piranah.txt') as infile:
+        with open_test_file('piranah.txt') as infile:
             msg = infile.read()
         # One of the lines
         #     On  9/17/2015 11:14 AM, Dinsdale Piranha
@@ -173,7 +173,7 @@ extraordinary trials in British legal history \u2014 were sentenced to
     def test_long_lines(self):
         '''Test a post by Kathleen Murphy to the St Paul Issue Forum, which has long lines.
 <http://forums.e-democracy.org/r/post/7pQkztAeqn1IW8yvLEmXX6>'''
-        with self.open_test_file('edem-spif-kathleenmurpy.txt') as infile:
+        with open_test_file('edem-spif-kathleenmurpy.txt') as infile:
             msg = infile.read()
         expected = self.expected_split(msg, 6)
         r = split_message(msg)
@@ -182,7 +182,7 @@ extraordinary trials in British legal history \u2014 were sentenced to
     def test_steve(self):
         '''Test a post from Steve to GroupServer development
 <http://groupserver.org/r/topic/1lgYbWTDPFvK76GHdXr0g2>'''
-        with self.open_test_file('groupserver-devel-steve.txt') as infile:
+        with open_test_file('groupserver-devel-steve.txt') as infile:
 
             msg = infile.read()
         expected = self.expected_split(msg, 23)
@@ -191,7 +191,7 @@ extraordinary trials in British legal history \u2014 were sentenced to
 
     def test_lao_tse(self):
         '''Test a quote from Lao Tse, which has a corner case signature sans a final newline'''
-        with self.open_test_file('without-action.txt') as infile:
+        with open_test_file('without-action.txt') as infile:
             msg = infile.read().strip()
         expectedBody = msg
         expectedEnd = ''
@@ -200,7 +200,7 @@ extraordinary trials in British legal history \u2014 were sentenced to
 
     def test_john_brunner(self):
         '''Test a quote from John Brunner, which has a short sign-off sans a final newline'''
-        with self.open_test_file('shockwave-rider.txt') as infile:
+        with open_test_file('shockwave-rider.txt') as infile:
             msg = infile.read().strip()
         expectedBody = msg
         expectedEnd = ''
@@ -209,7 +209,7 @@ extraordinary trials in British legal history \u2014 were sentenced to
 
     def test_html_spam(self):
         '''Test that we handle a spam message containing HTML well, or at least not poorly'''
-        with self.open_test_file('html-spam.txt') as infile:
+        with open_test_file('html-spam.txt') as infile:
             msg = infile.read()
         # The split is at a closing HTML-comment "-->".
         expected = self.expected_split(msg, 14)
@@ -236,14 +236,14 @@ extraordinary trials in British legal history \u2014 were sentenced to
         # --=mpj17=-- It seems as if Mozilla Thunderbird uses the HTML version of the message
         # for the bottom quoting, rather than the plain-text, and this causes no end of issues
         # with the splitting, and trying to find the bottom of the message.
-        with self.open_test_file('tricky-expected.txt') as testIn:
+        with open_test_file('tricky-expected.txt') as testIn:
             msg = testIn.read()
         r = split_message(msg)
 
-        with self.open_test_file('tricky-intro.txt') as introIn:
+        with open_test_file('tricky-intro.txt') as introIn:
             intro = introIn.read()
         self.assertEqual(intro, r.intro)
 
-        with self.open_test_file('tricky-remainder.txt') as remainderIn:
+        with open_test_file('tricky-remainder.txt') as remainderIn:
             remainder = remainderIn.read()
         self.assertEqual(remainder, r.remainder)

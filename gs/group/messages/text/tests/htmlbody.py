@@ -15,10 +15,10 @@
 from __future__ import absolute_import, unicode_literals, print_function
 from unittest import TestCase
 from gs.group.messages.text.htmlbody import HTMLBody
-from .testmessage import TestMessage
+from .utils import open_test_file
 
 
-class TestHTMLBody(TestCase, TestMessage):
+class TestHTMLBody(TestCase):
     'Test the HTMLBody class'
     line = '<span class="line">{0}</span><br/>'
 
@@ -79,7 +79,7 @@ https://sea.example.com/swim?attitude=like'''
         hb = HTMLBody(text)
 
         r = unicode(hb)
-        with self.open_test_file('e.html') as infile:
+        with open_test_file('e.html') as infile:
             expected = infile.read()
         self.maxDiff = 1024
         self.assertEqual(expected.strip(), r.strip())

@@ -15,7 +15,7 @@
 from __future__ import absolute_import, unicode_literals, print_function
 from unittest import TestCase
 from gs.group.messages.text.postbody import (wrap_message, Wrapper, )
-from .testmessage import (TestMessage, )
+from .utils import open_test_file
 
 
 class TestWrapper(TestCase):
@@ -69,7 +69,7 @@ class TestWrapper(TestCase):
         self.assertEqual(expected, r)
 
 
-class TestWrapMessage(TestCase, TestMessage):
+class TestWrapMessage(TestCase):
     'Test the ``wrap_message`` function.'
 
     def test_empty(self):
@@ -106,11 +106,11 @@ class TestWrapMessage(TestCase, TestMessage):
 
     def test_wrap_simple_quoted(self):
         'Ensure simple bottom quoting is fine'
-        with self.open_test_file('short.txt') as testIn:
+        with open_test_file('short.txt') as testIn:
             msg = testIn.read()
         r = wrap_message(msg)
 
-        with self.open_test_file('short-expected.txt') as expectedIn:
+        with open_test_file('short-expected.txt') as expectedIn:
             expected = expectedIn.read()
         self.assertEqual(expected, r)
 
@@ -120,10 +120,10 @@ class TestWrapMessage(TestCase, TestMessage):
         # for the bottom quoting, rather than the plain-text, and this causes no end of issues
         # with the splitting, and trying to find the bottom of the message.
         self.maxDiff = None
-        with self.open_test_file('tricky.txt') as testIn:
+        with open_test_file('tricky.txt') as testIn:
             msg = testIn.read()
         r = wrap_message(msg)
 
-        with self.open_test_file('tricky-expected.txt') as expectedIn:
+        with open_test_file('tricky-expected.txt') as expectedIn:
             expected = expectedIn.read()
         self.assertEqual(expected, r)
